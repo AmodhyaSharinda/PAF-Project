@@ -1,13 +1,16 @@
-package com.skillsharing.dto.user;
+package com.skillsharing.model.user;
+
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Document(collection = "users")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class userDTO {
+public class user {
     private String userName;
     private String password;
     private String name;
@@ -15,5 +18,5 @@ public class userDTO {
     private int phoneNumber;
     private String age;
     private String gender;
-    private String education; 
+    private String education;
 }
