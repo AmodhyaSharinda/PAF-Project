@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.skillsharing.model.user.user;
 
 @Repository
-public interface userRepo extends MongoRepository<user, Integer>{
+public interface userRepo extends MongoRepository<user, String>{
 
 }
