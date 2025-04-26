@@ -1,4 +1,4 @@
-package com.skillsharing.controller.post;
+package com.skillsharing.controller.Videos;
 
 import java.util.List;
 
@@ -14,41 +14,41 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.skillsharing.dto.post.postDTO;
-import com.skillsharing.services.post.postService;
+import com.skillsharing.dto.video.videoDTO;
+import com.skillsharing.services.video.videoService;
 
 
 @RestController
 @CrossOrigin
-@RequestMapping(value = "/api/posts/")
-public class postControler {
+@RequestMapping(value = "/api/videos/")
+public class VideoControler {
     @Autowired
-    private postService postService;
+    private videoService videoService;
 
-    @GetMapping("/getposts")
-    public List<postDTO> getPosts(){
-        return postService.getPosts();
+    @GetMapping("/getvideos")
+    public List<videoDTO> getvideos(){
+        return videoService.getvideos();
     }
 
     //not sure ---------------------------------------------------------------------------------------------------------
-    @GetMapping("/getpostsby/{userID}")
-    public List<postDTO> getpostbyID(@PathVariable ObjectId _id){
-        return postService.getPostbyID(_id);
+    @GetMapping("/getvideosby/{userID}")
+    public List<videoDTO> getvideosbyID(@PathVariable ObjectId _id){
+        return videoService.getvideosbyID(_id);
     }
     //-----------------------------------------------------------------------------------------------------------------
 
-    @PostMapping("/addposts")
-    public postDTO savePost(@RequestBody postDTO postDTO){
-        return  postService.createPost(postDTO);
+    @PostMapping("/addvideos")
+    public videoDTO saveVideo(@RequestBody videoDTO videoDTO){
+        return  videoService.createVideo(videoDTO);
     }
 
-    @PutMapping("/updateposts")
-    public postDTO updatePost(@RequestBody postDTO postDTO){
-        return  postService.updatePost(postDTO);
+    @PutMapping("/updatevideos")
+    public videoDTO updateVideo(@RequestBody videoDTO videoDTO){
+        return  videoService.updateVideo(videoDTO);
     }
 
-    @DeleteMapping("/deltepost")
-    public String deletePost(@RequestBody postDTO postDTO){
-        return  postService.deletePost(postDTO);
+    @DeleteMapping("/deltevideos")
+    public String deltevideos(@RequestBody videoDTO videDTO){
+        return  videoService.deltevideo(videDTO);
     }
 }

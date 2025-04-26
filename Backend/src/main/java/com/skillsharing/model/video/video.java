@@ -1,4 +1,4 @@
-package com.skillsharing.model.post;
+package com.skillsharing.model.video;
 
 import java.util.List;
 
@@ -10,11 +10,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Document(collection = "posts")
+@Document(collection = "videos")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class post {
+public class video {
     @Id
     private ObjectId id;
     private ObjectId user;  // The user who created the post

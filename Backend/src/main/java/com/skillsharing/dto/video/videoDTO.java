@@ -1,4 +1,4 @@
-package com.skillsharing.dto.post;
+package com.skillsharing.dto.video;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class postDTO {
+public class videoDTO {
     private ObjectId id;
     private ObjectId user;
     private String caption;
