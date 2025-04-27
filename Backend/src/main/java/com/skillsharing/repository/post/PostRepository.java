@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.skillsharing.model.post.post;
 
 @Repository
-public interface PostRepository extends MongoRepository<post, String> {
+public interface PostRepository extends MongoRepository<post, ObjectId> {
 
     // Find posts by userId (for getting posts of a specific user)
     @Query("{ 'user' : ?0 }")

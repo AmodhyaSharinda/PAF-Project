@@ -32,8 +32,8 @@ public class postControler {
 
     //not sure ---------------------------------------------------------------------------------------------------------
     @GetMapping("/getpostsby/{userID}")
-    public List<postDTO> getpostbyID(@PathVariable ObjectId _id){
-        return postService.getPostbyID(_id);
+    public List<postDTO> getpostbyID(@PathVariable ObjectId user){
+        return postService.getPostbyID(user);
     }
     //-----------------------------------------------------------------------------------------------------------------
 
@@ -42,13 +42,13 @@ public class postControler {
         return  postService.createPost(postDTO);
     }
 
-    @PutMapping("/updateposts")
-    public postDTO updatePost(@RequestBody postDTO postDTO){
-        return  postService.updatePost(postDTO);
+    @PutMapping("/updateposts/{id}")
+    public postDTO updatePost(@PathVariable ObjectId id, @RequestBody postDTO postDTO){
+        return  postService.updatePost(id, postDTO);
     }
 
-    @DeleteMapping("/deltepost")
-    public String deletePost(@RequestBody postDTO postDTO){
-        return  postService.deletePost(postDTO);
+    @DeleteMapping("/deltepost/{id}")
+    public String deletePost(@PathVariable ObjectId id){
+        return  postService.deletePost(id);
     }
 }

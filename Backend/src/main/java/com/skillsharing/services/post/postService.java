@@ -43,13 +43,20 @@ public class postService {
     }
 
      // Create a new post
-     public postDTO updatePost(postDTO postDTO) {
-        postRepository.save(modelMapper.map(postDTO, post.class));
-        return postDTO;
+     public postDTO updatePost(ObjectId id, postDTO postDTO) {
+        post existingPost = postRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Post not found"));
+    
+        post updatedPost = modelMapper.map(postDTO, post.class);
+        updatedPost.setId(existingPost.getId()); // Set the same ID
+    
+        postRepository.save(updatedPost);
+    
+        return modelMapper.map(updatedPost, postDTO.class);
     }
 
-    public String deletePost(postDTO posDTO){
-        postRepository.delete(modelMapper.map(posDTO, post.class));
+    public String deletePost(ObjectId id){
+        postRepository.deleteById(id);
         return "successfully deleted";
     }
 }
