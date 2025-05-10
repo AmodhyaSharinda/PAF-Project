@@ -19,8 +19,14 @@ public interface followRepository extends MongoRepository<followModel, String> {
     List<followModel> findByFollowerId(String followerId);
     List<followModel> findByFollowingId(String followingId);
     Optional<followModel> findByFollowerIdAndFollowingId(String followerId, String followingId);
+    
+    // ✅ Count the number of users someone is following
+    long countByFollowerId(String followerId);
 
-    // Find posts by userId (for getting posts of a specific user)
+    // ✅ Count the number of users following someone
+    long countByFollowingId(String followingId);
+
+    
 
     //@Query("{ 'user' : ?0 }")
     //List<followModel> findByFollowerID(String user);

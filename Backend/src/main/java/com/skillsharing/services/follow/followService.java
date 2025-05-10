@@ -54,6 +54,15 @@ public class followService {
         return "successfully deleted";
     }
 
+    public long countFollowers(String userId) {
+        return followRepository.countByFollowingId(userId);
+    }
+
+    public long countFollowing(String userId) {
+        return followRepository.countByFollowerId(userId);
+    }
+
+
     public String unfollowwUser(String followerId, String followingId) {
         Optional<followModel> followOptional = followRepository.findByFollowerIdAndFollowingId(followerId, followingId);
 
@@ -67,5 +76,7 @@ public class followService {
     }
 
     }
+
+    
     
 }

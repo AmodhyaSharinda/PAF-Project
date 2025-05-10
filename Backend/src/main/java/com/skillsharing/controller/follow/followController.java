@@ -48,4 +48,16 @@ public class followController {
     public String unfollowwUser(@PathVariable String followerid, @PathVariable String followingid){
         return followService.unfollowwUser(followerid, followingid);
     }
+
+    // ✅ Count followers
+    @GetMapping("/count/followers/{userId}")
+    public long countFollowers(@PathVariable String userId) {
+        return followService.countFollowers(userId);
+    }
+
+    // ✅ Count following
+    @GetMapping("/count/following/{userId}")
+    public long countFollowing(@PathVariable String userId) {
+        return followService.countFollowing(userId);
+    }
 }
