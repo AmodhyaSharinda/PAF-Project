@@ -18,7 +18,7 @@ import com.skillsharing.services.user.userService;
 import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping(value = "/api/users/")
 public class userControler {
 

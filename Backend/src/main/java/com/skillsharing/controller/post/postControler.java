@@ -25,6 +25,7 @@ public class postControler {
     @Autowired
     private postService postService;
 
+    
     @GetMapping("/getposts")
     public List<postDTO> getPosts(){
         return postService.getPosts();
@@ -47,7 +48,7 @@ public class postControler {
         return  postService.updatePost(id, postDTO);
     }
 
-    @DeleteMapping("/deltepost/{id}")
+    @DeleteMapping("/deletepost/{id}")
     public String deletePost(@PathVariable ObjectId id){
         return  postService.deletePost(id);
     }
